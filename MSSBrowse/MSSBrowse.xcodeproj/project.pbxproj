@@ -45,10 +45,6 @@
 		40DAF1541CCF7B9300F29AF7 /* MSSBrowseBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DAF1531CCF7B9300F29AF7 /* MSSBrowseBaseViewController.m */; };
 		40DAF1571CCF82B200F29AF7 /* MSSBrowseNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DAF1561CCF82B200F29AF7 /* MSSBrowseNetworkViewController.m */; };
 		40DAF15A1CCF846000F29AF7 /* MSSBrowseLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DAF1591CCF846000F29AF7 /* MSSBrowseLocalViewController.m */; };
-		CD5F37731F0DED3800B5884A /* ic_title_back_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5F376F1F0DED3800B5884A /* ic_title_back_light@2x.png */; };
-		CD5F37741F0DED3800B5884A /* ic_title_back_light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5F37701F0DED3800B5884A /* ic_title_back_light@3x.png */; };
-		CD5F37751F0DED3800B5884A /* ic_tittle_delete_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5F37711F0DED3800B5884A /* ic_tittle_delete_light@2x.png */; };
-		CD5F37761F0DED3800B5884A /* ic_tittle_delete_light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD5F37721F0DED3800B5884A /* ic_tittle_delete_light@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,10 +121,6 @@
 		40DAF1561CCF82B200F29AF7 /* MSSBrowseNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSBrowseNetworkViewController.m; sourceTree = "<group>"; };
 		40DAF1581CCF846000F29AF7 /* MSSBrowseLocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSBrowseLocalViewController.h; sourceTree = "<group>"; };
 		40DAF1591CCF846000F29AF7 /* MSSBrowseLocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSBrowseLocalViewController.m; sourceTree = "<group>"; };
-		CD5F376F1F0DED3800B5884A /* ic_title_back_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_title_back_light@2x.png"; sourceTree = "<group>"; };
-		CD5F37701F0DED3800B5884A /* ic_title_back_light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_title_back_light@3x.png"; sourceTree = "<group>"; };
-		CD5F37711F0DED3800B5884A /* ic_tittle_delete_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tittle_delete_light@2x.png"; sourceTree = "<group>"; };
-		CD5F37721F0DED3800B5884A /* ic_tittle_delete_light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tittle_delete_light@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,10 +249,6 @@
 				40D3A4721C81CD6800F969C1 /* UIView+MSSLayout.m */,
 				40D3A48C1C81D0F700F969C1 /* mss_browseLoading@2x.png */,
 				40D3A48D1C81D0F700F969C1 /* mss_browseLoading@3x.png */,
-				CD5F376F1F0DED3800B5884A /* ic_title_back_light@2x.png */,
-				CD5F37701F0DED3800B5884A /* ic_title_back_light@3x.png */,
-				CD5F37711F0DED3800B5884A /* ic_tittle_delete_light@2x.png */,
-				CD5F37721F0DED3800B5884A /* ic_tittle_delete_light@3x.png */,
 			);
 			path = MSSBrowse;
 			sourceTree = "<group>";
@@ -323,16 +311,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD5F37731F0DED3800B5884A /* ic_title_back_light@2x.png in Resources */,
 				40D3A3B91C81C49600F969C1 /* LaunchScreen.storyboard in Resources */,
-				CD5F37751F0DED3800B5884A /* ic_tittle_delete_light@2x.png in Resources */,
 				40D3A3B61C81C49600F969C1 /* Assets.xcassets in Resources */,
 				40D3A3B41C81C49600F969C1 /* Main.storyboard in Resources */,
-				CD5F37741F0DED3800B5884A /* ic_title_back_light@3x.png in Resources */,
 				40D3A4CA1C81E7A100F969C1 /* Images.xcassets in Resources */,
 				40D3A4901C81D0F700F969C1 /* mss_browseLoading@2x.png in Resources */,
 				40D3A4911C81D0F700F969C1 /* mss_browseLoading@3x.png in Resources */,
-				CD5F37761F0DED3800B5884A /* ic_tittle_delete_light@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
