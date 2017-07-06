@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D6E16DB836ED50F784FF89BE48EE218E2FFFE3FA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D6E16DB836ED50F784FF89BE48EE218E2FFFE3FA" : 9223372036854775807,
+    "A08A5C0739AD88FE9A090557C853B132E90B3999" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D057ADDA-E29F-4F3C-99B3-672D8B3A6028",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D6E16DB836ED50F784FF89BE48EE218E2FFFE3FA" : "MSSBrowse-master\/",
+    "A08A5C0739AD88FE9A090557C853B132E90B3999" : "MSSBrowse-master\/MSSBrowse\/MSSBrowse\/MSSBrowse\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MSSBrowse",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MSSBrowse\/MSSBrowse.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/swdaer\/MSSBrowse.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A08A5C0739AD88FE9A090557C853B132E90B3999"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/swdaer\/MSSBrowse-master.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D6E16DB836ED50F784FF89BE48EE218E2FFFE3FA"
+    }
+  ]
+}

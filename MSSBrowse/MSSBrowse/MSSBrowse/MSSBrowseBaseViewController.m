@@ -251,10 +251,12 @@
         }];
         [cell longPress:^(MSSBrowseCollectionViewCell *browseCell) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
-            if([[SDImageCache sharedImageCache]diskImageExistsWithKey:browseItem.bigImageUrl])
-            {
-                [strongSelf longPress:browseCell];
-            }
+            [[SDImageCache sharedImageCache] diskImageExistsWithKey:browseItem.bigImageUrl completion:^(BOOL isInCache) {
+                if (isInCache) {
+                    [strongSelf longPress:browseCell];
+                }
+            }];
+
         }];
     }
     return cell;
