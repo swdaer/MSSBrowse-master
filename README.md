@@ -1,6 +1,6 @@
-该项目是在原作者的基础上添加右上角删除按钮，感谢MSS0306作者\n
-项目原地址：https://github.com/MSS0306/MSSBrowse.git\n
-此项目只作为本人pods管理所用，因项目原因，对源代码有所改动
+该项目是在原作者的基础上添加右上角删除按钮，感谢MSS0306作者<br/>
+项目原地址：https://github.com/MSS0306/MSSBrowse.git<br/>
+此项目只作为本人pods管理所用，因项目原因，对源代码有所改动<br/>
 
 # MSSBrowse
 A simple iOS photo browse like wechat 微信图片浏览
