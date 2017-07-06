@@ -101,6 +101,10 @@
     }
     MSSCollectionViewCell *cell = (MSSCollectionViewCell *)[_collectionView cellForItemAtIndexPath:indexPath];
     MSSBrowseNetworkViewController *bvc = [[MSSBrowseNetworkViewController alloc]initWithBrowseItemArray:browseItemArray currentIndex:cell.imageView.tag - 100];
+    bvc.showNav = YES;
+    bvc.deleteBlock = ^(NSInteger index) {
+        NSLog(@"%ld",(long)index);
+    };
 //    bvc.isEqualRatio = NO;// 大图小图不等比时需要设置这个属性（建议等比）
     [bvc showBrowseViewController];
     

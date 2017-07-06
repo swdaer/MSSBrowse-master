@@ -16,7 +16,7 @@
 
 @interface MSSBrowseBaseViewController ()
 
-@property (nonatomic,strong)NSArray *browseItemArray;
+@property (nonatomic,strong)NSMutableArray *browseItemArray;
 @property (nonatomic,assign)NSInteger currentIndex;
 @property (nonatomic,assign)BOOL isRotate;// 判断是否正在切换横竖屏
 @property (nonatomic,strong)UILabel *countLabel;// 当前图片位置
@@ -27,7 +27,8 @@
 @property (nonatomic,assign)UIDeviceOrientation currentOrientation;
 @property (nonatomic,strong)MSSBrowseActionSheet *browseActionSheet;
 @property (nonatomic,strong)MSSBrowseRemindView *browseRemindView;
-
+@property (nonatomic,strong)UIView *navBar;
+@property (nonatomic,strong)UILabel *navTitle;
 @end
 
 @implementation MSSBrowseBaseViewController
@@ -37,7 +38,7 @@
     self = [super init];
     if(self)
     {
-        _browseItemArray = browseItemArray;
+        _browseItemArray = [browseItemArray mutableCopy];
         _currentIndex = currentIndex;
         _isEqualRatio = YES;
         _isFirstOpen = YES;
@@ -108,9 +109,45 @@
     return [view.superview convertRect:view.frame toView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
 }
 
+- (void)reBack
+{
+    [self hidden];
+}
+
+- (void)hidden
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:NO completion:^{
+            
+        }];
+    }];
+}
+
+- (void)reDelete
+{
+    if (_browseItemArray.count > _currentIndex) {
+        if (_deleteBlock) {
+            _deleteBlock(_currentIndex);
+        }
+        [_browseItemArray removeObjectAtIndex:_currentIndex];
+        if (_browseItemArray.count == 0) {
+            [self hidden];
+        } else {
+            if (_currentIndex + 1 > _browseItemArray.count) {
+                _currentIndex = _browseItemArray.count - 1;
+            }
+            _navTitle.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
+            [_collectionView reloadData];
+        }
+    }
+}
+
 - (void)createBrowseView
 {
     self.view.backgroundColor = [UIColor blackColor];
+    
     if(_snapshotView)
     {
         _snapshotView.hidden = YES;
@@ -144,15 +181,44 @@
     _collectionView.contentOffset = CGPointMake(_currentIndex * (_screenWidth + kBrowseSpace), 0);
     [_bgView addSubview:_collectionView];
     
-    _countLabel = [[UILabel alloc]init];
-    _countLabel.textColor = [UIColor whiteColor];
-    _countLabel.frame = CGRectMake(0, _screenHeight - 50, _screenWidth, 50);
-    _countLabel.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
-    _countLabel.textAlignment = NSTextAlignmentCenter;
-    [_bgView addSubview:_countLabel];
+    if (_showNav) {
+        _navBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _screenWidth, 64)];
+        _navBar.backgroundColor = [UIColor colorWithRed:32.0f/255.0f green:32.0f/255.0f blue:32.0f/255.0f alpha:1];
+        [self.view addSubview:_navBar];
+        
+        _navTitle = [[UILabel alloc] initWithFrame:CGRectMake(100, 20, _screenWidth - 200, 44)];
+        _navTitle.textColor = [UIColor whiteColor];
+        _navTitle.textAlignment = NSTextAlignmentCenter;
+        _navTitle.font = [UIFont systemFontOfSize:18.0f];
+        [_navBar addSubview:_navTitle];
+        
+        UIButton * back = [UIButton buttonWithType:UIButtonTypeCustom];
+        back.frame = CGRectMake(8, 20, 44, 44);
+        [back setImage:[UIImage imageNamed:@"ic_title_back_light"] forState:UIControlStateNormal];
+        [back addTarget:self action:@selector(reBack) forControlEvents:UIControlEventTouchUpInside];
+        [_navBar addSubview:back];
+        
+        UIButton * delete = [UIButton buttonWithType:UIButtonTypeCustom];
+        delete.frame = CGRectMake(_screenWidth - 8 - 44, 20, 44, 44);
+        [delete setImage:[UIImage imageNamed:@"ic_tittle_delete_light"] forState:UIControlStateNormal];
+        [delete addTarget:self action:@selector(reDelete) forControlEvents:UIControlEventTouchUpInside];
+        [_navBar addSubview:delete];
+    }
+
+    if (!_showNav) {
+        _countLabel = [[UILabel alloc]init];
+        _countLabel.textColor = [UIColor whiteColor];
+        _countLabel.frame = CGRectMake(0, _screenHeight - 50, _screenWidth, 50);
+        _countLabel.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
+        _countLabel.textAlignment = NSTextAlignmentCenter;
+        [_bgView addSubview:_countLabel];
+    } else {
+        _navTitle.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
+    }
     
     _browseRemindView = [[MSSBrowseRemindView alloc]initWithFrame:_bgView.bounds];
     [_bgView addSubview:_browseRemindView];
+    
 }
 
 
@@ -217,6 +283,7 @@
     {
         _currentIndex = scrollView.contentOffset.x / (_screenWidth + kBrowseSpace);
         _countLabel.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
+        _navTitle.text = [NSString stringWithFormat:@"%ld/%ld",(long)_currentIndex + 1,(long)_browseItemArray.count];
     }
     _isRotate = NO;
 }
